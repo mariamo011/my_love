@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>გრძნობების თამაში</title>
+<style>
+body {
+  background: linear-gradient(pink, lightblue);
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  color: red;
+  font-size: 5vw;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin: 20px 0; /* სურათსა და ქვემოთ ბატონებს შორის */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  font-size: 5vw;
+  padding: 10px 20px;
+  margin: 15px 10px 0 10px; /* ზედა სივრცე ბატონებთან */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+</style>
+</head>
+<body>
+
+<h1>გიყვარვარ თუ გკიდივარ?</h1>
+<img src="https://i.imgur.com/rRkOkIz.jpeg">
+
+<div>
+    <button id="loveBtn">მიყვარხარ</button>
+    <button id="hateBtn">მკიდიხარ</button>
+</div>
+
+<script>
+const loveBtn = document.getElementById('loveBtn');
+const hateBtn = document.getElementById('hateBtn');
+
+// საწყისი ზომები
+let loveSize = 3; // vw
+let hateSize = 3; // vw
+
+loveBtn.style.fontSize = loveSize + "vw";
+hateBtn.style.fontSize = hateSize + "vw";
+
+loveBtn.addEventListener('click', () => {
+    window.location.href = "love.html";
+});
+
+hateBtn.addEventListener('click', () => {
+    loveSize += 2; // მიყვარხარი იზრდება
+    hateSize = Math.max(1, hateSize - 1); // მკიდიხარი მცირდება, მინიმუმ 1vw
+    loveBtn.style.fontSize = loveSize + "vw";
+    hateBtn.style.fontSize = hateSize + "vw";
+});
+</script>
+
+</body>
+</html>
